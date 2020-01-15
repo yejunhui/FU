@@ -1,0 +1,50 @@
+{%extends "temp.html"%}
+
+{%block title%}天王星AI{%endblock%}
+{%block body%}
+<div class="alert-success">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="{{url_for('plan')}}">PLAN系统</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('stick')}}">STOCK系统</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('gold')}}">GOLD系统</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('sunnyGirl')}}">阳光煊煊</a>
+      </li>
+    </ul>
+
+</div>
+
+<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
+您的账号为：{{user}}<br>
+您的密码为：{{password}}<br>
+是否同意服务协议：{{checkbox}}<br>
+页面访问权限：{% for t in ts%}
+  <tr>
+    <td>{{t}}&nbsp;|&nbsp;</td>
+  </tr>
+{% endfor%}
+<br>
+服务协议内容：<br><br>{{tss}}
+<br>
+
+<table border="2" bgcolor="#f5f5f5">
+
+  {% for l in r%}
+    <tr >
+      {% for li in l%}
+        <td >
+          {{li}}
+        </td>
+    {% endfor %}
+    </tr><br>
+  {% endfor %}
+</table>
+
+{%endblock%}

@@ -1,50 +1,217 @@
-{%extends "temp.html"%}
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
 
-{%block title%}天王星AI{%endblock%}
-{%block body%}
-<div class="alert-success">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="responsive, template, portfolio, html, css, javascript, Theme" />
+    <meta name="author" content="">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+    <title>星云3</title>
 
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="{{url_for('plan')}}">PLAN系统</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('stick')}}">STOCK系统</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('gold')}}">GOLD系统</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('sunnyGirl')}}">阳光煊煊</a>
-      </li>
-    </ul>
+    <!--favicon icon-->
+    <link rel="icon" href="/static/home/images/favicon.png">
 
-</div>
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css?family=Playball|Playfair+Display:400,400i,700,700i,900" rel="stylesheet">
 
-<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
-您的账号为：{{user}}<br>
-您的密码为：{{password}}<br>
-是否同意服务协议：{{checkbox}}<br>
-页面访问权限：{% for t in ts%}
-  <tr>
-    <td>{{t}}&nbsp;|&nbsp;</td>
-  </tr>
-{% endfor%}
-<br>
-服务协议内容：<br><br>{{tss}}
-<br>
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="/static/home/css/font-awesome.min.css">
 
-<table border="2" bgcolor="#f5f5f5">
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="/static/home/css/bootstrap.min.css">
 
-  {% for l in r%}
-    <tr >
-      {% for li in l%}
-        <td >
-          {{li}}
-        </td>
-    {% endfor %}
-    </tr><br>
-  {% endfor %}
-</table>
+    <!--venobox css-->
+    <link rel="stylesheet" href="/static/home/css/venobox.css">
 
-{%endblock%}
+    <!-- global style css -->
+    <link rel="stylesheet" href="/static/home/css/global-style.css">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="/static/home/style.css">
+
+    <!--responsive css-->
+    <link rel="stylesheet" href="/static/home/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- ======================================= 
+        ==Start Header section==  
+    =======================================-->
+    <header class="pixinav responsive-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- brand logo start -->
+                    <div class="brand-logo">
+                        <a href="{{url_for('index')}}"><img src="/static/home/images/logo.png" alt="logo-img"></a>
+                    </div>
+                    <!-- Responsive nav button start -->
+                    <div class="nav-icon"></div>
+                    <!-- search area -->
+                    <div class="login_area">
+                        <ul class="d_inline">
+                            <li class="signup"><a href="{{url_for('cls')}}">退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- nav start -->
+                    <div class="nav-wrapper">
+                        <span class="nav-button-close">✕</span>
+                        <ul>
+                            <li class="active"><a href="#">System</a>
+                                <ul class="dropdown">
+                                    <li><a href="url_for('plan')"><small style="color:#000;">Plan</small></a></li>
+                                    <li><a href="web_agency.html"><small style="color:#000;">Gold</small></a></li>
+                                    <li><a href="agency.html"><small style="color:#000;">Stock</small></a></li>
+                                    <li><a href="{{url_for('myFamily')}}"><small style="color:#000;">MyFamily</small></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">My</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ======================================= 
+        ==End Header section==  
+    =======================================-->
+<!--主体-->
+    <section class="hero_section pos_relative">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align_row_center_center">
+                <div class="col-lg-5 col-md-6 pr_30">
+                    <div class="hero_content">
+                        <span class="d_block playball color_ff">Be a pro from zero</span>
+                        <h1 class="color_ff pt_15 pb_25">Professional UX Design Course</h1>
+                        <p class="color_ff pb_40">Did you ever wanted to learn UX Design? But couldn’t find the right way? This couruse can be for you! Start from the begining and be a professional</p>
+                        <a href="#" class="free_class">Start with free class!</a>
+                        <span class="no_card color_ff d_block">No credit card required!</span>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="img_area pos_relative">
+                        <div class="overlay"></div>
+                        <img src="/static/home/images/hero-video-img.jpg" alt="" class="img img-responsive">
+                        <a class="vbox-item play" data-autoplay="true" data-vbtype="video" href="/static/video/x.mp4">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================================= 
+        ==End Hero section==  
+    =======================================-->
+
+
+    <!-- ======================================= 
+        ==start facts section==  
+    =======================================-->
+    <div class="container">
+        <section class="facts_section">
+            <div class="row">
+                <div class="col-lg-2 col-sm-3">
+                    <img src="/static/home/images/fact-icon1.png" alt="icon">
+                    <p class="facts_txt">用时间<br/>记录人生</p>
+                </div>
+                <div class="col-lg-2 col-lg-offset-1 col-sm-3">
+                    <img src="/static/home/images/fact-icon2.png" alt="icon">
+                    <p class="facts_txt">用尺度<br/>丈量世界</p>
+                </div>
+                <div class="col-lg-2 col-lg-offset-1 col-sm-3">
+                    <img src="/static/home/images/fact-icon3.png" alt="icon">
+                    <p class="facts_txt">07 Premium<br/>ebooks for free!</p>
+                </div>
+                <div class="col-lg-2 col-lg-offset-1 col-sm-3">
+                    <img src="/static/home/images/fact-icon4.png" alt="icon">
+                    <p class="facts_txt">Certificate<br/>after completation</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- ======================================= 
+        ==End facts section==  
+    =======================================-->
+
+
+    <!-- ======================================= 
+        ==start about section==  
+    =======================================-->
+    <section class="about_section">
+        <div class="media-content" style="background: url(images/about-img.png) center top / cover no-repeat;"></div>
+        <div class="section-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about_content">
+                            <span class="d_block playball color_272">Know about the course</span>
+                            <h1 class="color_272 pt_15 pb_25">We know the way <br/>to teach you Design.</h1>
+                            <p class="color_272 pb_40">Old education him departure any arranging one prevailed. Their end whole might began her. Behaved the comfort another fifteen eat. Partiality had his themselves ask pianoforte increasing discovered. So mr delay at since place whole above miles. He to observe conduct at detract because. Way ham unwilling not breakfast furniture explained perpetual.</p>
+                            <a href="#" class="free_class">Start with free class!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================================= 
+        ==End about section==  
+    =======================================-->
+
+
+    <!-- ======================================= 
+        ==start testimonial section==  
+    =======================================-->
+    <section class="testimonial_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="testimonial_wrapper text-center">
+                        <span class="d_block playball color_ff">Know about the course</span>
+                        <h1 class="color_ff pt_15 pb_25">What they say about this</h1>
+                        <div class="author_info pos_relative pt_35 pb_25">
+                           <i class="fa fa-quote-left color_ff"></i>
+                            <img src="/static/home/images/author-img.jpg" alt="img">
+                            <span class="color_ff d_block pt_15">Katherin Jones</span>
+                        </div>
+                        <p class="color_ff">“Old education him departure any arranging one prevailed. Their end whole might began her. Behaved the comfort another fifteen eat. Partiality had his themselves ask pianoforte increasing discovered. So mr delay at since place whole above miles. He to observe conduct at detract because. Way ham unwilling not breakfast furniture explained perpetual.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================================= 
+        ==End testimonial section==  
+    =======================================-->
+    
+
+  <!-- =======================================
+        ==Start scroll top==  
+    =======================================-->
+    <div class="scroll_top not_visible"><i class="fa fa-angle-up"></i></div>
+    <!-- =======================================
+        ==End scroll top==  
+    =======================================-->
+
+    <!-- jQuary library -->
+    <script type="text/javascript" src="/static/home/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/static/home/js/modernizr-2.6.2.min.js"></script>
+
+    <!--bootstrap min js-->
+    <script type="text/javascript" src="/static/home/js/bootstrap.min.js"></script>
+
+    <!--venobox min js-->
+    <script type="text/javascript" src="/static/home/js/venobox.min.js"></script>
+
+    <!-- all jQuary activation code here and always it will be bottom of all script tag -->
+    <script type="text/javascript" src="/static/home/js/main.js"></script>
+</body>
+
+</html>

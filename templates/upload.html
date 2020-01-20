@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<form action="{{url_for('upload')}}" method="post">
+    &nbsp;盘点数据：<input type="file" name="check" /><br>
+    &nbsp;BOM数据：<input type="file" name="bom" /><br>
+    &nbsp;<button type="submit">上传</button><br>
+
+</form>
+
+<a href="{{url_for('plan')}}">返回计划主页</a>
+<a href="{{url_for('index')}}">返回系统主页</a>
+
+</body>
+</html>

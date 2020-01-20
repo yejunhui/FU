@@ -1,0 +1,132 @@
+/************************************************
+[Responsive Stylesheet]
+
+Project Name    : 
+Team & Company  : 
+Desgined By     : 
+Developed By    : 
+Date            : 
+*************************************************/
+
+@media (min-width: 1200px) {}
+
+/* ===================Large Display==============*/
+@media (max-width: 1199px) {
+    .about_section {
+        padding-left: 35%;
+    }
+    .about_section .media-content {
+        background-position: right top !important;
+        width: 55%;
+    }
+    
+    
+    
+    
+}
+
+
+/* ===============Tab Screen==============*/
+@media (max-width: 991px) {
+    .hero_section {
+        padding: 170px 0 80px;
+        text-align: center;
+    }
+    .hero_section .row.align_row_center_center {
+        display: block;
+        height: auto;
+    }
+    .hero_section .img_area {
+        margin-top: 50px;
+    }
+    .about_section {
+        padding-left: 0;
+        margin-top: 40px;
+    }
+    .about_section .media-content {
+        width: 50%;
+    }
+    .about_section .section-content {
+        max-width: 100%;
+    }
+    .about_section .about_content {
+        text-align: center;
+    }
+    footer .copyright {
+        text-align: center;
+    }
+    footer .footer_menu {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    
+    
+    
+}
+
+
+/* =================Medium Mobile Screen==============*/
+@media (max-width: 767px) {
+    header.pixinav.responsive-nav {
+        padding: 0px 0;
+        min-height: 65px;
+    }
+    .responsive-nav .login_area {
+        display: none;
+    }
+    .facts_section .col-lg-2 {
+        float: left;
+        margin-bottom: 40px;
+        min-height: 150px;
+        width: 50%;
+    }
+    .facts_section {
+        padding: 80px 0 20px;
+    }
+    .about_section {
+        margin-top: 0;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .about_section .about_content h1 {
+        font-size: 48px;
+        line-height: 55px;
+    }
+    .testimonial_section {
+        padding: 70px 0 70px;
+    }
+    .testimonial_section .testimonial_wrapper h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .testimonial_section .testimonial_wrapper p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+    
+    
+    
+}
+
+
+/* =================Small Mobile Display==============*/
+@media (max-width: 479px) {
+    .hero_section .hero_content h1.color_ff.pt_15.pb_25 {
+        font-size: 36px;
+        line-height: 43px;
+    }
+    .hero_section .img_area .play {
+        height: 60px;
+        padding: 15px 23px;
+        width: 60px;
+    }
+    .facts_section .col-lg-2 {
+        min-height: 200px;
+    }
+    .about_section .about_content h1 {
+        font-size: 32px;
+        line-height: 43px;
+    }
+    
+}

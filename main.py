@@ -1,97 +1,96 @@
-from flask import Flask,render_template,url_for,request,redirect,make_response
+import os
+
+from flask import Flask,render_template,url_for,request,redirect,make_response,flash,send_from_directory
 from random import randint
 import time
 import d
+import pmysql
+import back
+import files
+import plan as pp
 
 app = Flask(__name__)
+
+fp = os.getcwd() + '/files'
+
+def verify(request):
+    if 'ran' in request.cookies:
+        uc = request.cookies.get('user')
+        pc = request.cookies.get('password')
+        ran = request.cookies.get('ran')
+        cont = back.indexVerify(ran)
+        cont['uc']=uc
+        cont['pc']=pc
+        return cont
+    else:
+        return ''
 
 @app.route('/',methods=['GET','POST'])
 @app.route('/login',methods=['GET','POST'])
 def login():
-    #判断method形式
-    if request.method == 'POST':
-        #获得用户名和密码
-        d.user = request.form['user']
-        d.password = request.form['password']
-        #判断是否同意服务协议
-        if 'checkbox' in request.form:
-            d.userList[d.user]=[d.password]
-            #比对用户是否存在
-            if d.user in d.userListT:
-                    #比对密码
-                    if d.userList[d.user][0] == d.userListT[d.user]:
-                        d.r = str(randint(0,99999))
-                        d.ran.append(d.r)
-                        resp = make_response(redirect(url_for('index')))
-                        resp.set_cookie('ran',d.r)
-                        d.userList[d.user]=d.password
-                        return resp
-                    else:
-                        return render_template('login.html', t=d.t, user=d.user, ts='密码错误！')
-            else:
-                return render_template('login.html', t=d.t, user='',ts = '没有找到用户信息！')
-        else:
-            return render_template('login.html', t=d.t, user='', ts='请同意服务协议！')
-    else:
-        return render_template('login.html',t = d.t,user=d.user)
+    return render_template('login.html')
 
 
+@app.route('/loginUp',methods=['GET','POST'])
+def loginUp():
+        return render_template('loginUp.html')
 
-@app.route('/loginIn',methods=['GET','POST'])
-def loginIn():
-    if request.method == 'POST':
-        if 'checkbox' in request.form:
-            if request.form['password'] == request.form['password2']:
-                d.user = user = request.form['user']
-                if user in d.userListT:
-                    return redirect(url_for('login',t=d.t,user=user,ts='用户已经注册！'))
-                else:
-                    password = request.form['password']
-                    email = request.form['email']
-                    phone = request.form['phone']
-                    d.userListT[user]=[password,email,phone,time.localtime(time.time())]
-                    return redirect(url_for('login', t=d.t, user=user, ts='注册成功！请登录！'))
-            else:
-                return render_template('loginIn.html', t=d.t, user=d.user,ts='输入的再次密码不一致！')
-        else:
-            return render_template('loginIn.html', t=d.t, user=d.user,ts='请同意服务协议!')
-    else:
-        return render_template('loginIn.html',t = d.t,user=d.user)
 
-@app.route('/index')
+@app.route('/index',methods=['GET','POST'])
 def index():
-    if request.cookies.get('ran') in d.ran:
-        return render_template('index.html',t = d.t,user=d.user,password='********')
-    else:
-        return redirect(url_for('login',t=d.t))
+    return render_template('index.html')
 
-@app.route('/plan')
-def plan():
-    return render_template('plan.html',t = d.t,user=d.user)
 
-@app.route('/stick')
-def stick():
-    return render_template('stock.html',t = d.t,user=d.user)
+@app.route('/myFamily',methods=['GET','POST'])
+def myFamily():
+    return render_template('myfamilyhome.html')
 
-@app.route('/gold')
-def gold():
-    return render_template('gold.html',t = d.t,user=d.user)
 
-@app.route('/sunnyGirl')
-def sunnyGirl():
-    return render_template('sunnyGirl.html',t = d.t,user=d.user)
+@app.route('/myPhotoShow',methods=['GET','POST'])
+def myPhotoShow():
+    return render_template('myPhotoShow.html')
 
-@app.route('/cls')
+
+#退出
+@app.route('/cls',methods=['GET','POST'])
 def cls():
-    resp = make_response(redirect(url_for('login',t=d.t)))
-    if d.user in d.userList:
-        del d.userList[d.user]
-    d.user = ''
-    d.password = ''
-    d.ran.remove(d.r)
+    back.login(request.cookies.get('user'))
+    resp = make_response(redirect(url_for('login')))
     resp.delete_cookie('ran')
     return resp
 
+#BOM模板
+@app.route('/dowb')
+def dowb():
+    pp.excelBomOut()
+    #fp = os.getcwd()+'/files'
+    return send_from_directory(fp,'BOM导入模板.xlsx')
+    return redirect(url_for('plan'))
+
+#盘点模板
+@app.route('/dowc')
+def dowc():
+    pp.excelCheckOut()
+    #fp = os.getcwd() + '/files'
+    return send_from_directory(fp, '盘点导入模板.xlsx')
+    return redirect(url_for('plan'))
+
+#BOM上传
+@app.route('/upload')
+def upload():
+    if request.method == 'POST':
+        bom= request.files.get('bom')
+        check= request.files.get('check')
+        bom.sava(fp+'\\bom.xlsx')
+        check.sava(fp+'\\check.xlsx')
+
+        pp.excelIn(fp+'\\check.xlsx')
+        conts = {}
+        conts['fileName']=fp+'\\bom.xlsx'
+        pp.bomIn(conts)
+        return render_template('upload.html')
+    else:
+        return render_template('upload.html')
 
 
 #运行

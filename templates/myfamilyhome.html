@@ -10,11 +10,11 @@
 	<div id="header">
 		<div>
 			<div id="logo">
-				<a href="index.html"><span>MyFamily</span></a>
+				<a href="{{url_for('myFamily')}}"><span>MyFamily</span></a>
 			</div>
 			<ul id="navigation">
 				<li class="selected">
-					<a href="index.html">Home</a>
+					<a href="{{url_for('index')}}">Home</a>
 				</li>
 				<li>
 					<a href="about.html">Photos</a>
@@ -25,8 +25,11 @@
 				<li>
 					<a href="blog.html">Record</a>
 				</li>
+				<li class="active">
+					<a href="{{url_for('myMes')}}">{{cont.user[0][0]}}</a>
+				</li>
 				<li>
-					<a href="contact.html">My</a>
+					<a href="https://www.baidu.com/">Help</a>
 				</li>
 			</ul>
 		</div>

@@ -3,12 +3,13 @@ import pymysql
 
 class pmysql:
     def __init__(self):
-        conn = pymysql.connect(host='localhost',user='user',password='123456',db='d')
-        conn.autocommit(True)
-        self.cur = conn.cursor()
+        self.conn = pymysql.connect(host='localhost',user='user',password='123456',db='d')
+        self.conn.autocommit(True)
+        self.cur = self.conn.cursor()
 
 
     def msql(self,sql):
+        self.conn.ping(reconnect=True)
         self.cur.execute(sql)
         return self.cur.fetchall()
 

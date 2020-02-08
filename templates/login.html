@@ -1,184 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<title>星云3</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
-
-	<link rel="stylesheet" href="/static/xuan/css/bootstrap/bootstrap.css">
-<link rel="stylesheet" href="/static/xuan/fonts/ionicons/css/ionicons.min.css">
-<link rel="stylesheet" href="/static/xuan/fonts/law-icons/font/flaticon.css">
-
-<link rel="stylesheet" href="/static/xuan/fonts/fontawesome/css/font-awesome.min.css">
-
-
-<link rel="stylesheet" href="/static/xuan/css/slick.css">
-<link rel="stylesheet" href="/static/xuan/css/slick-theme.css">
-
-<link rel="stylesheet" href="/static/xuan/css/helpers.css">
-<link rel="stylesheet" href="/static/xuan/css/style.css">
-<link rel="stylesheet" href="/static/xuan/css/landing-2.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tivo is a free HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+    <!-- Website Title -->
+    <title>Log In - 星云3</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="/static/login/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/login/css/fontawesome-all.css" rel="stylesheet">
+    <link href="/static/login/css/swiper.css" rel="stylesheet">
+	<link href="/static/login/css/magnific-popup.css" rel="stylesheet">
+	<link href="/static/login/css/styles.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="/static/login/images/favicon.png">
 </head>
-<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    
 
-<!--网页头部的导航栏-->
-<nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
-  <div class="container">
-	<a class="navbar-brand" href="index.html"><img src="/static/img/timg.jpg" style="height:30px;width:30px;"></a>
-	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-	  <span><i class="ion-navicon"></i></span>
-	</button>
-	<div class="collapse navbar-collapse" id="probootstrap-navbar">
-	  <ul class="navbar-nav ml-auto">
-		<li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
-		<li class="nav-item"><a class="nav-link" href="#section-features">Plan</a></li>
-		<li class="nav-item"><a class="nav-link" href="#section-reviews">Gold</a></li>
-		<li class="nav-item"><a class="nav-link" href="#section-pricing">Stock</a></li>
-		<li class="nav-item"><a class="nav-link" href="#section-faq">XuanXuan</a></li>
-		<li class="nav-item cta-btn ml-xl-2 ml-lg-2 ml-md-0 ml-sm-0 ml-0"><a class="nav-link" href="{{url_for('loginUp')}}" target="_blank"><span class="pb_rounded-4 px-4">Login Up</span></a></li>
-	  </ul>
-	</div>
-  </div>
-</nav>
-<!-- END nav -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
 
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="{{url_for('index')}}"><img src="/static/login/images/logo.svg" alt="alternative"></a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-awesome fas fa-bars"></span>
+                <span class="navbar-toggler-awesome fas fa-times"></span>
+            </button>
+            <!-- end of mobile menu toggle button -->
 
-<!--主体-->
-<section class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
-  <div class="container">
-	<div class="row align-items-center justify-content-center">
-	  <div class="col-md-6">
-		<h2 class="heading mb-3">每个人都总会有梦想！</h2>
-		<div class="sub-heading">
-		  <p class="mb-4">你每天拼命在奔跑</p>
-		  <p class="mb-5">感受未来的召唤</p>
-		</div>
-	  </div> 
-	  <div class="col-md-1">
-	  </div>
-	  <div class="col-md-5 relative align-self-center">
-		
-		<form action="#" class="bg-white rounded pb_form_v1">
-		  <h2 class="mb-4 mt-0 text-center">登录</h2>
-			<div class="form-group">
-			<input type="text" class="form-control pb_height-50 reverse" placeholder="Id" name="id">
-		  </div>
-		  <div class="form-group">
-			<input type="text" class="form-control pb_height-50 reverse" placeholder="登录密码" name="password">
-		  </div>
-		  <div class="form-group">
-			<input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Login">
-		  </div>
-		</form>
-
-	  </div> 
-	</div>
-  </div>
-</section>
-<!-- END section -->
-<!--
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
-<section class="pb_section bg-light pb_slant-white">
-  <div class="container">
-	<div class="row">
-	  <div class="col-lg-4 order-2">
-		<img src="/static/xuan/images/phone_3.png" alt="Image placeholder" class="img-fluid">
-	  </div>
-	  <div class="col-lg-8 pr-md-5 pr-sm-0 order-1  mb-5">
-		<div class="row">
-		  <div class="col">
-			<h2>Application Features</h2>
-			<p class="pb_font-20">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-lg">
-			
-			<div class="media pb_feature-v2 text-left mb-1 mt-5">
-			  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-bookmarks-outline pb_icon-gradient"></i></div>
-			  <div class="media-body">
-				<h3 class="mt-2 mb-2 heading">Minimal Design</h3>
-				<p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-			  </div>
-			</div> 
-			
-			<div class="media pb_feature-v2 text-left mb-1 mt-5">
-			  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-infinite-outline pb_icon-gradient"></i></div>
-			  <div class="media-body">
-				<h3 class="mt-2 mb-2 heading">Unlimited Posibilities</h3>
-				<p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-			  </div>
-			</div> 
-
-		  </div>
-		  <div class="col-lg">
-			
-			<div class="media pb_feature-v2 text-left mb-1 mt-5">
-			  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-speedometer-outline pb_icon-gradient"></i></div>
-			  <div class="media-body">
-				<h3 class="mt-2 mb-2 heading">Fast Loading</h3>
-				<p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-			  </div>
-			</div>
-
-			<div class="media pb_feature-v2 text-left mb-1 mt-5">
-			  <div class="pb_icon d-flex mr-3 align-self-start pb_w-15"><i class="ion-ios-color-filter-outline  pb_icon-gradient"></i></div>
-			  <div class="media-body">
-				<h3 class="mt-2 mb-2 heading">Component Based Design</h3>
-				<p class="text-sans-serif pb_font-16">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-			  </div>
-			</div>    
-
-		  </div>
-		</div>
-		
-	  </div>
-	</div>
-  </div>
-</section>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="https://www.baidu.com">Help <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-outline-sm" href="{{url_for('loginUp')}}">SIGN UP</a>
+                </span>
+            </div>
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
 
 
-<footer class="pb_footer bg-light" role="contentinfo">
-  <div class="container">
-	<div class="row text-center">
-	  <div class="col">
-		<ul class="list-inline">
-		  <li class="list-inline-item"><a href="#" class="p-2"><i class="fa fa-facebook"></i></a></li>
-		  <li class="list-inline-item"><a href="#" class="p-2"><i class="fa fa-twitter"></i></a></li>
-		  <li class="list-inline-item"><a href="#" class="p-2"><i class="fa fa-linkedin"></i></a></li>
-		</ul>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="col text-center">
-		<p class="pb_font-14">Copyright &copy; 2018.ProCompany name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-	  </div>
-	</div>
-  </div>
-</footer>
+    <!-- Header -->
+    <header id="header" class="ex-2-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Log In</h1>
+                   <p>You don't have a password? Then please <a class="white" href="{{url_for('loginUp')}}">Sign Up</a></p>
+                    <!-- Sign Up Form -->
+                    <div class="form-container">
+                    <form action="/login" method="post" id="logInForm" data-toggle="validator" data-focus="false">
+                    </form>
+                        <form action="/login" method="post" id="logInForm" data-toggle="validator" data-focus="false">
+                        <div class="form-group">
+                                <label>ID</label>
+                                <input type="text" class="form-control-input" id="lemail" name="user" required>
+                                <!--<label class="label-control" for="lemail">ID</label>
+                                <div class="help-block with-errors"></div>-->
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control-input" id="lpassword" name="password" required>
+                                <!--<label class="label-control" for="lpassword">Password</label>
+                                <div class="help-block with-errors"></div>-->
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control-submit-button">LOG IN</button>
+                            </div>
+                    </form>
+                    </div> <!-- end of form container -->
+                    <!-- end of sign up form -->More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+    <script>
+    {% if cont.ts %}
+        window.alert({{cont.ts}})
+    {% endif %}
+    </script>
 
 
-<div id="pb_loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#1d82ff"/></svg></div>
--->
-
-
-<script src="/static/xuan/js/jquery.min.js"></script>
-
-<script src="/static/xuan/js/popper.min.js"></script>
-<script src="/static/xuan/js/bootstrap.min.js"></script>
-<script src="/static/xuan/js/slick.min.js"></script>
-<script src="/static/xuan/js/jquery.mb.YTPlayer.min.js"></script>
-
-<script src="/static/xuan/js/jquery.waypoints.min.js"></script>
-<script src="/static/xuan/js/jquery.easing.1.3.js"></script>
-
-<script src="/static/xuan/js/main.js"></script>
-
+    <!-- Scripts -->
+    <script src="/static/login/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="/static/login/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="/static/login/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/static/login/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="/static/login/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/static/login/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="/static/login/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="/static/login/js/scripts.js"></script> <!-- Custom scripts -->
 </body>
 </html>
